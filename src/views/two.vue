@@ -38,12 +38,12 @@ import { ref, reactive } from "vue";
 import { saveAs } from "file-saver";
 
 const ruleForm = reactive({
-    one: "",
-    two: "",
-    three: "",
-    four: "",
-    five: "",
-    six: "",
+    one: "A3B3_0h_1",
+    two: "A3B3_0h_2",
+    three: "A3B3_0h_3",
+    four: "A3B3_3h_1",
+    five: "A3B3_3h_2",
+    six: "A3B3_3h_3",
 });
 const ruleFormRef = ref();
 const rules = reactive({
@@ -127,11 +127,16 @@ const getDownList = async (formEl) => {
                 const a = item[ruleForm.one] - item[ruleForm.four];
                 const b = item[ruleForm.two] - item[ruleForm.five];
                 const c = item[ruleForm.three] - item[ruleForm.six];
-                if (a > -3 && a < 3 && b > -3 && b < 3 && c > -3 && c < 3) {
-                    return;
-                } else {
-                    list.value.push(item);
-                }
+                if (a > -3 && a < 3) return;
+                if (b > -3 && b < 3) return;
+                if (c > -3 && c < 3) return;
+                // if (a > -3 && a < 3 && b > -3 && b < 3 && c > -3 && c < 3) {
+                //     return;
+                // } else {
+                //     list.value.push(item);
+                // }
+                console.log(item);
+                list.value.push(item);
             });
             console.log(list.value);
             // 将数据转换为工作表

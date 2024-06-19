@@ -60,19 +60,20 @@ const getDownList = async () => {
         });
     });
 
-    const counts1 = {};
-    const duplicates = [];
 
+    const counts2 = {};
+    const a = [];
     arr1.value.flat().forEach((obj) => {
         const GeneID = obj.GeneID;
-        counts1[GeneID] = (counts1[GeneID] || 0) + 1;
-
-        if (counts1[GeneID] > 1) {
-            duplicates.push(obj);
+        counts2[GeneID] = (counts2[GeneID] || 0) + 1;
+        // console.log(counts2[GeneID]);
+        if (counts2[GeneID] == arr1.value.length) {
+            a.push(obj);
         }
     });
+
     // 将数据转换为工作表
-    const worksheet = XLSX.utils.json_to_sheet(duplicates);
+    const worksheet = XLSX.utils.json_to_sheet(a);
 
     // 创建工作簿并添加工作表
     const workbook = XLSX.utils.book_new();
