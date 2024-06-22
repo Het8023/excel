@@ -38,12 +38,12 @@ import { ref, reactive } from "vue";
 import { saveAs } from "file-saver";
 
 const ruleForm = reactive({
-    one: "A3B3_0h_1",
-    two: "A3B3_0h_2",
-    three: "A3B3_0h_3",
-    four: "A3B3_3h_1",
-    five: "A3B3_3h_2",
-    six: "A3B3_3h_3",
+    one: "",
+    two: "",
+    three: "",
+    four: "",
+    five: "",
+    six: "",
 });
 const ruleFormRef = ref();
 const rules = reactive({
